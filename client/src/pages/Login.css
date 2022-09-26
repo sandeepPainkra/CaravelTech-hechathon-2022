@@ -1,0 +1,78 @@
+.login {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.login form {
+  padding: 2.9rem 2rem 1rem;
+  width: 450px;
+  height: 80vh;
+  background-color: rgba(241, 239, 239, 0.07);
+  box-shadow: 2px 9px 19px 20px rgb(167 4 4 / 10%);
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  color: #206d81;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+.login .lbl {
+  font-size: 21px;
+  font-weight: 500;
+
+  position: relative;
+  left: 15px;
+  margin-bottom: 5px;
+  opacity: 0.7;
+}
+.login input {
+  padding: 1rem 0.7rem;
+  text-indent: 6px;
+  width: 100%;
+  background-color: rgb(222, 219, 219) !important;
+  color: rgb(146, 120, 86);
+  align-self: center;
+  height: 28px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 1px solid white;
+}
+.login .btn {
+  width: 220px;
+  height: 40px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  align-self: center;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  color: #206d81;
+  font-size: 19px;
+  font-weight: 500;
+}
+.login .btn:hover {
+  background-color: #85b8c0;
+}
+.login .sent {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login .pass {
+  text-decoration: none;
+  color: #2d7bc3;
+  margin-bottom: 5px;
+}
+.login .acc {
+  color: #2d7bc3;
+}

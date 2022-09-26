@@ -11,15 +11,17 @@ const Login = () => {
         <input type="email" placeholder="example@gmail.com" />
         <label class="lbl">Password </label>
         <input type="Password" placeholder="Enter Password" />
+        <label class="lbl">Confirm Password </label>
+        <input type="Password" placeholder="Confirm Password" />
         <button class="btn" type="submit">
-          Login
+          Sign Up
         </button>
 
         <div class="sent">
           <p>
-            Don't have an Account?
-            <NavLink to="/signup" class="acc">
-              Register
+            Already have an Account?
+            <NavLink to="/signin" class="acc">
+              Login
             </NavLink>
           </p>
         </div>
