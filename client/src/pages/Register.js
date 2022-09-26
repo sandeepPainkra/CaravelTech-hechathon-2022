@@ -3,8 +3,9 @@ import "./Login.css";
 import { NavLink } from "react-router-dom";
 const Login = () => {
   return (
-    <div className="login">
+    <div className="login register">
       <form>
+        <h1>Create Your Account</h1>
         <label class="lbl">Username</label>
         <input type="text" placeholder="Full Name" />
         <label class="lbl">Email </label>

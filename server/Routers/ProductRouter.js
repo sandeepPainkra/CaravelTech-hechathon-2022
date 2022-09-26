@@ -32,4 +32,74 @@ ProductRouter.post("/addproduct", LoginRequire, IsAdmin, (req, res) => {
   }
 });
 
+ProductRouter.get("/allproducts", LoginRequire, (req, res) => {
+  try {
+    Product.find()
+      .then((products) => {
+        res.json({ products });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+ProductRouter.put(
+  "/update-product/:productId",
+  LoginRequire,
+  IsAdmin,
+  async (req, res) => {
+    const { productId } = req.params;
+    const { title, description, category, price, image } = req.body;
+    try {
+      await Product.findByIdAndUpdate(
+        productId,
+        {
+          $set: {
+            title,
+            description,
+            price,
+            category,
+            image,
+          },
+        },
+        {
+          new: true,
+        },
+        (err, data) => {
+          if (err) {
+            return res.status(422).json({ error: err });
+          } else {
+            return res
+              .status(200)
+              .json({ message: "Product Updated Successfully", data });
+          }
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+ProductRouter.delete(
+  "/delete/:productId",
+  LoginRequire,
+  IsAdmin,
+  (req, res) => {
+    const { productId } = req.params;
+    try {
+      Product.findByIdAndDelete(productId)
+        .then((product) => {
+          res.status(200).json({ message: "Successfully deleted", product });
+        })
+        .catch((err) => console.log(err));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 module.exports = ProductRouter;

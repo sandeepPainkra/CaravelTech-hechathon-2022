@@ -79,6 +79,22 @@ userRouter.post("/signin", (req, res) => {
       console.log(err);
     });
 });
+
+userRouter.get("/allusers", LoginRequire, IsAdmin, (req, res) => {
+  try {
+    User.find()
+      .then((users) => {
+        res.status(200).json({
+          status: 200,
+          message: "All users",
+          users,
+        });
+      })
+      .catch((err) => console.log(err));
+  } catch (error) {
+    console.log(error);
+  }
+});
 userRouter.put("/update-user/:userId", LoginRequire, IsAdmin, (req, res) => {
   const { name, email, password, image, admin } = req.body;
   const { userId } = req.params;
@@ -100,6 +116,24 @@ userRouter.put("/update-user/:userId", LoginRequire, IsAdmin, (req, res) => {
     .catch((err) => {
       console.log(err);
     });
+});
+
+userRouter.delete("/delete-user/:userId", LoginRequire, IsAdmin, (req, res) => {
+  const { userId } = req.params;
+  console.log(userId);
+  try {
+    User.findByIdAndDelete(userId)
+      .then((user) => {
+        res.status(200).json({
+          status: 200,
+          message: "User deleted successfully",
+          user,
+        });
+      })
+      .catch((err) => console.log(err));
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 module.exports = userRouter;
