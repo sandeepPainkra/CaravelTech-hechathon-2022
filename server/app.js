@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const { DB } = require("./keys");
+const ProductRouter = require("./Routers/ProductRouter");
 const userRouter = require("./Routers/UserRouter");
 const app = express();
 
@@ -14,6 +15,7 @@ mongoose.connect(
 );
 app.use(express.json());
 app.use("/user", userRouter);
+app.use("/product", ProductRouter);
 app.get("/", (req, res) => {
   res.send("hello");
 });
